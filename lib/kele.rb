@@ -45,6 +45,11 @@ class Kele
         puts response
     end
     
+    def update_submission (id, checkpoint_id, assignment_branch, assignment_commit_link, comment)
+        response = self.class.put(api_url("checkpoint_submissions/:#{id}"), body: { "checkpoint_id": checkpoint_id, "assignment_branch": assignment_branch, "assignment_commit_link": assignment_commit_link, "comment": comment }, headers: { "authorization" => @auth_token })
+        puts response 
+    end
+    
 end
 
 # GET https://www.bloc.io/api/v1/users/me
